@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling Website | Vanilla Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="Logo">Logo</a>
+        <ul>
+            <li><a href="#" class="active">home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Work</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="./imagens/stars.png" id="stars">
+        <img src="./imagens/moon.png" id="moon">
+        <img src="./imagens/mountains_behind.png" id="mountains_behind">
+        <h2 id="text">Moon Light</h2>
+        <a href="#sec" id="btn">Explore</a>
+        <img src="./imagens/mountains_front.png" id="mountains_front">
+    </section>
+    <div class="sec" id="sec">
+        <h2>Parallax  Scrolling Effects</h2>
+        <p>Parallax Scrolling foi uma das grandes tendências do webdesign em 2012. Mesmo que você não conheça o termo é capaz de já ter visto o efeito por aí… Ele serve para dar a ilusão de profundidade de campo e pode ser utilizado para criar uma experiência de navegação bem diferentes do convencional. Neste artigo vamos entender da onde surgiu este termo, quais cuidados devemos tomar e é claro, como implementar o efeito de parallax scrolling através de javascript.<br><br>
+            Parece confuso? Existe uma experiência simples para ver este efeito no “mundo real”. Você pode testar agora mesmo. Levante seu dedo indicador e estique o braço. Agora feche um olho e preste atenção no fundo atrás do seu dedo. Depois, ainda com o braço parado, feche o olho que estava aberto e abra o outro. A impressão é que dá é que seu dedo “andou” em relação ao fundo, certo?<br><br>Na verdade esta não é uma idéia muito nova. Utilizar camadas de imagens que se movem em velocidades diferentes é uma técnica que já foi muito utilizada no cinema e até em video games. Quem é um pouco mais velho certamente se lembra dos jogos 2D. As camadas de cenário em jogos como Super Mario, por exemplo, criavam a ilusão de profundidade de campo quando o personagem se movia pela tela. A idéia aqui é a mesma. Utilizar elementos gráficos como texto, imagens, background etc sobrepostos em camadas que se movem em diferentes velocidades de acordo com a rolagem do mouse na tela.<br><br>A febre se espalhou mesmo na internet com o site Nike Better World (A Smashing Magazine inclusive tem um case bem interessante sobre o projeto). Desde então o parallax foi utilizado em inúmeras situações e se tornou uma ótima ferramenta de storytelling, já que o efeito é ótimo para criar uma continuidade visual como no site Ben, the bodyguard. Ou até mesmo uma história em quadrinhos interativa de como a Soul Reaper. </p>
+    </div>
+    <script>
+        let stars = document.getElementById('stars');
+        let moon = document.getElementById('moon');
+        let mountains_behind = document.getElementById('mountains_behind');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+        let mountains_front = document.getElementById('mountains_front');
+        let header = document.querySelector('header');
+
+        window.addEventListener('scroll', function(){
+            let value = window.scrollY;
+            stars.style.left = value * 0.25 + 'px';
+            moon.style.top = value * 1.05 + 'px';
+            mountains_behind.style.top = value * 0.5 + 'px';
+            mountains_front.style.top = value * 0 + 'px';
+            text.style.marginRight = value * 4 + 'px';
+            text.style.marginTop = value * 1.5 + 'px';
+            btn.style.marginTop = value * 1.5 + 'px';
+            header.style.marginTop = value * 0.5 + 'px';
+        })
+    </script>
+</body>
+</html>
